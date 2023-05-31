@@ -17,8 +17,8 @@ defmodule Ukio.Bookings.Handlers.BookingCreator do
       check_in: check_in,
       check_out: check_out,
       monthly_rent: apartment.monthly_price,
-      utilities: 20_000,
-      deposit: 100_000
+      utilities: 20_000 * apartment.square_meters,
+      deposit: apartment.monthly_price
     }
   end
 end

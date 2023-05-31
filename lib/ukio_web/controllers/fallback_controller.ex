@@ -21,4 +21,11 @@ defmodule UkioWeb.FallbackController do
     |> put_view(html: UkioWeb.ErrorHTML, json: UkioWeb.ErrorJSON)
     |> render(:"404")
   end
+
+  def call(conn, {:error, :unauthorized}) do
+    conn
+    |> put_status(:unauthorized)
+    |> put_view(html: UkioWeb.ErrorHTML, json: UkioWeb.ErrorJSON)
+    |> render(:"401")
+  end
 end
